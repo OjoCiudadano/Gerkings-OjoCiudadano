@@ -712,3 +712,99 @@ Feature: US20 - Como representante de una institución gubernamental o fiscaliza
  Examples :
     | Formulario enviado | Correo electrónico de confirmación |
     | Formulario1        | CorreoElectrónico1                 |
+
+#US21
+Feature: US21 - Como representante de una institución gubernamental o fiscalizadora, quiero poder visualizar noticias actualizadas sobre los avances de las obras públicas, para estar informado sobre el progreso y poder monitorear de manera efectiva el estado de los proyectos.  
+
+ Scenario: ES55 - Acceder a la sección de noticias
+  TA01
+  Given que el representante de la institución gubernamental desea revisar las últimas noticias sobre obras públicas
+  When  el representante de una institución gubernamental o fiscalizadora ingresa a la plataforma digital y accede a la [sección de noticias]
+  Then la plataforma digital debe mostrar un [listado actualizado de noticias con avances detallados sobre las obras en curso], organizadas cronológicamente
+
+ Examples :
+    | Listado actualizado de noticias |
+    | AvanceDetallado1                |
+    | AvanceDetallado2                |
+    | AvanceDetallado3                |
+
+#US22
+Feature: US22 - Como representante de una institución gubernamental o fiscalizadora, quiero poder visualizar la descripción, misión y visión de la startup "Ojo Ciudadano" desde la plataforma, para comprender mejor sus objetivos y valores antes de colaborar o interactuar con la misma. 
+
+ Scenario: ES56 - Acceder a la sección de "Sobre Nosotros"
+  TA01
+  Given el representante de una institución gubernamental o fiscalizadora desea conocer más sobre la startup
+  When el representante de una institución gubernamental o fiscalizadora selecciona la [sección "Sobre Nosotros"] en la plataforma
+  Then la plataforma digital debe mostrar una página informativa que incluya la misión, visión, objetivos y una breve descripción de los proyectos principales de la plataforma
+
+ Examples :
+    | Sobre Nosotros |
+    | Descripción    |
+    | Misión         |
+    | Visión         |
+
+#US23
+Feature: US23 - Como representante de una institución gubernamental o fiscalizadora, quiero acceder a la sección "¿Qué es Ojo Ciudadano?" en la plataforma digital, para comprender su misión, visión y objetivos, así como obtener información sobre estadísticas de uso y participar en la asistencia disponible para resolver mis dudas.
+
+ Scenario: ES57 - Visualización exitosa de la sección "¿Qué es Ojo Ciudadano?"
+  TA01
+  Given que un representante de una institución gubernamental o fiscalizadora está en la página principal de la plataforma digital "Ojo Ciudadano"
+  When el representante de una institución gubernamental o fiscalizadora selecciona la [opción "¿Qué es Ojo Ciudadano?"] desde el menú de navegación
+  Then la plataforma digital debe mostrar una [página informativa] que incluya la misión, visión, objetivos y una breve descripción de los proyectos principales de la plataforma
+
+ Examples :
+    | ¿Qué es Ojo Ciudadano? |
+    | Misión                 |
+    | Visión                 |  
+    | Objetivos              |
+    | Descrípción            |
+
+#US24
+Feature: US24 - Como representante de una institución gubernamental o fiscalizadora, quiero una búsqueda rápida de proyectos en "Ojo Ciudadano", para encontrar de manera eficiente información sobre proyectos específicos, recibir sugerencias automáticas y filtrar por fechas, mejorando así mi experiencia en la plataforma. 
+
+ Scenario: ES58 - Búsqueda rápida de proyectos por nombre
+  TA01
+  Given que un ciudadano peruano necesita acceder rápidamente a información sobre un proyecto específico
+  When el representante de una institución gubernamental o fiscalizadora ingresa el [nombre del proyecto] en la barra de búsqueda rápida
+  Then a plataforma digital debe mostrar una [lista de resultados relevantes], priorizando los proyectos que coincidan con el nombre exacto o palabras clave relacionadas, permitiendo al representante de una institución gubernamental o fiscalizadora acceder a la información del proyecto de forma directa y rápida
+
+ Examples :
+    | Nombre del proyecto en la búsqueda rápida |
+    | Nombre exacto                             |
+    | Palabras clave                            |
+
+Scenario: ES59 - Sugerencias automáticas en la búsqueda rápida
+  TA02
+  Given que un representante de una institución gubernamental o fiscalizadora peruano está utilizando la búsqueda rápida pero no recuerda el nombre completo del proyecto
+  When el representante de una institución gubernamental o fiscalizadora comienza a escribir en la barra de búsqueda rápida
+  Then la plataforma digital debe mostrar [sugerencias automáticas basadas en los términos ingresados], como nombres de proyectos, gobiernos regionales o palabras clave relacionadas, para facilitar la selección del proyecto deseado sin necesidad de escribir el nombre completo
+ Examples :
+    | Sugerencia automáticas en la búsqueda rápida |
+    | Nombres de proyectos                         |
+    | Nombres de gobiernos regionales              |
+    | Palabras clave relacionadas                  |
+
+#US25
+Feature: US25 - Como representante de una institución gubernamental o fiscalizadora, quiero descargar la aplicación "Ojo Ciudadano" desde la plataforma, para acceder a sus servicios, así como saber los requisitos de la plataforma digital, recibir instrucciones claras de instalación y obtener una confirmación de la descarga con una guía rápida para usar la app. 
+
+ Scenario: ES60 - Descarga de la app desde Play Store
+  TA01
+  Given que un representante de una institución gubernamental o fiscalizadora se encuentra en la pantalla principal
+  When se dirija al pie de página
+  And haga clic en el botón [“Descargar desde la Play Store”]
+  Then el representante de una institución gubernamental o fiscalizadora es redireccionado a la Play Store
+  And le aparecerá la [pantalla para que proceda la descarga]
+
+ Examples :
+    | Botón “Descargar desde la Play Store” | Pantalla de descarga de la app en Play Store |
+
+ Scenario: ES61 - Descarga de la app desde Apple Store
+  TA02
+  Given que un representante de una institución gubernamental o fiscalizadora se encuentra en la pantalla principal
+  When se dirija al pie de página
+  And haga clic en el botón [“Descargar desde la Apple Store”]
+  Then el representante de una institución gubernamental o fiscalizadora es redireccionado a la Apple Store
+  And le aparecerá la [pantalla para que proceda la descarga]
+
+ Examples :
+    | Botón “Descargar desde la Apple Store” | Pantalla de descarga de la app en Apple Store |
