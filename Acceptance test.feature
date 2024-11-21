@@ -552,3 +552,163 @@ Feature: US15 - Como ciudadano peruano, quiero poder compartir los reportes sobr
     | Compartir por enlace             |
     | Plataforma digital de mensajería |
     | Correo electrónico               |    
+
+#US16
+Feature: US16 - Como representante de una institución gubernamental o fiscalizadora, quiero enviar un mensaje al asistente de WhatsApp desde la sección de Centro de ayuda, para obtener información sobre las obras públicas o soporte inmediato acerca de algún error en la página web.
+
+ Scenario: ES43 - Enviar una consulta sobre obras públicas
+  TA01
+  Given que el representante de una institución gubernamental o fiscalizadora está [en la página web y necesita obtener información sobre obras públicas]
+  When accede a la sección de Centro de ayuda y selecciona la opción para enviar un [mensaje al asistente de WhatsApp]
+  Then la plataforma digital debe [abrir WhatsApp] automáticamente con un mensaje preconfigurado, permitiendo al representante enviar la consulta sobre una obra pública y recibir una respuesta automatizada con información o enlaces relevantes
+
+ Examples :
+    | Centro de ayuda                         | Mensaje preconfigurado        | Consulta sobre una obra pública | Respuesta automatizada |
+    | Enviar mensaje al asistente de Whatsapp | "¿Desea enviar una consulta?" | Consulta1                       | Respuesta1             |
+
+ Scenario: ES44 - Reportar un error en la página web
+  TA02
+  Given el representante de una institución gubernamental o fiscalizadora encuentra [un error en la página web y busca soporte]
+  When accede al [Centro de ayuda y elige la opción para contactar al asistente de WhatsApp]
+  Then la plataforma digital debe [abrir WhatsApp] con un mensaje preconfigurado para reportar el error en la página, solicitando una breve descripción del problema, y recibir una respuesta automática que indique que el error está siendo investigado
+
+ Examples :
+    | Centro de ayuda                         | Mensaje preconfigurado        | Descripción                                           | Reporte de error | Respuesta automatizada             |
+    | Enviar mensaje al asistente de Whatsapp | "¿Desea enviar una consulta?" | "¿Podría brindar una breve descripción del problema?" | Reporte1         | "El error está siendo investigado" |
+
+#US17
+Feature: US17 - Como representante de una institución gubernamental o fiscalizadora, quiero revisar los términos y condiciones de la política de privacidad de la plataforma, para asegurarme de que los datos de los usuarios se manejen de acuerdo con las normativas vigentes y garantizar la protección de la información.
+                 
+ Scenario: ES45 - Acceso a los términos y condiciones desde el menú principal
+  TA01
+  Given que el representante de una institución gubernamental o fiscalizadora necesita consultar los términos y condiciones de la política de privacidad
+  When el representante accede a la [sección de "Política de Privacidad" desde el menú principal de la página web]
+  Then la plataforma digital debe mostrar un [documento detallado con los términos y condiciones actualizados]
+  And permitir al representante leerlos en su totalidad
+
+ Examples :
+    | Política de Privacidad |
+    | Términos y condiciones actualizados |
+
+ Scenario: ES46 - Descargar una copia de la política de privacidad
+  TA02
+  Given que el representante de una institución gubernamental o fiscalizadora desea tener una copia de los términos y condiciones de la política de privacidad para revisión externa
+  When accede a la [sección de "Política de Privacidad" y selecciona la opción de descarga]
+  Then la plataforma digital debe proporcionar la [opción de descargar el documento en formato PDF]
+  And permitir que el representante lo almacene y revise fuera de línea
+
+ Examples :
+    | Política de Privacidad Descarga |
+    | Descargar en formato PDF        |
+
+#US18
+Feature: US18 - Como representante de una institución gubernamental o fiscalizadora, quiero enviar un formulario de reclamo desde la sección "Libro de reclamaciones" en la plataforma digital “Ojo Ciudadano”, para reportar formalmente cualquier inconveniente relacionado con la gestión de obras públicas o el uso de la plataforma.  
+
+ Scenario: ES47 - Acceder al formulario desde la sección de Libro de reclamaciones
+  TA01
+  Given que el representante de una institución gubernamental o fiscalizadora desea presentar un reclamo formal
+  When accede a la [sección "Libro de reclamaciones" desde el menú principal de la plataforma]
+  Then la plataforma digital debe mostrar un [formulario estructurado con campos como nombre de la institución, motivo del reclamo, detalles específicos y datos de contacto]
+
+ Examples :
+    | Libro de reclamaciones   |
+    | Nombre de la institución |
+    | Motivo del reclamo       |
+    | Detalles específicos     |
+    | Datos de contacto        |
+
+ Scenario: ES48 - Completar y enviar el formulario de reclamo
+  TA02
+  Given que el representante de una institución gubernamental o fiscalizadora ha accedido al formulario de reclamación
+  When completa todos los campos obligatorios del formulario y selecciona la opción de "Enviar"
+  Then debe mostrar una [confirmación de recepción exitosa] al representante
+
+ Examples :
+    | Confirmación de recepción           |
+    | "Su reclamo fue recibido con éxito" |
+        
+ Scenario: ES49 - Recibir una copia del reclamo al correo electrónico
+  TA03
+  Given que el representante de una institución gubernamental o fiscalizadora ha enviado el formulario de reclamo
+  When la plataforma digital confirma la recepción del reclamo
+  Then debe [enviar un correo electrónico al representante] con un resumen del reclamo presentado
+
+ Examples :
+    | Resumen de confirmación de recepción al correo electrónico |
+    | Resumen del reclamo presentado                             |
+       
+#US19
+Feature: US19 - Como representante de una institución gubernamental o fiscalizadora, quiero visualizar las redes sociales de “Ojo Ciudadano” desde la plataforma, para estar al tanto de las actualizaciones y actividades relacionadas con las obras públicas y la transparencia en la ejecución de proyectos.  
+
+ Scenario: ES50 - Acceder a las redes sociales desde el menú principal 
+  TA01
+  Given que un ciudadano peruano está en la plataforma "Ojo Ciudadano"
+  When accede a la [sección de "Redes Sociales" desde el menú principal]
+  Then la plataforma digital debe mostrar una [lista de enlaces a las redes sociales oficiales de "Ojo Ciudadano"]
+
+ Examples :
+    | Íconos y enlaces de redes sociales |
+    | Facebook                           |
+    | Twitter                            |
+    | Instagram                          |
+
+ Scenario: ES51 - Abrir un enlace a una red social 
+  TA02
+  Given que un ciudadano peruano está en la sección de "Redes Sociales"
+  When selecciona un enlace a una red social específica (por ejemplo, Facebook, Twitter, Instagram)
+  Then el navegador debe [abrir la página de la red social seleccionada en una nueva pestaña]
+
+ Examples :
+    | Íconos y enlaces de redes sociales | Nueva pestaña de la red social |
+    | Facebook                           | Publicaciones                  |
+    | Twitter                            | Comentarios                    |
+    | Instagram                          | Actualizaciones                |
+
+ Scenario: ES52 - Mensaje de error al no encontrar redes sociales 
+  TA03
+  Given que un ciudadano peruano accede a la sección de "Redes Sociales"
+  When no hay información disponible sobre las redes sociales de "Ojo Ciudadano"
+  Then la plataforma digital debe mostrar un [mensaje de error indicando que no se encontraron redes sociales disponibles] y sugerir que intente más tarde
+
+ Examples :
+    | Íconos y enlaces de redes sociales | Nueva pestaña de la red social | Mensaje de error                                                |
+    | Facebook                           | Sin información                | No se encontraron redes sociales disponibles, intente más tarde | 
+    | Twitter                            | Sin información                | No se encontraron redes sociales disponibles, intente más tarde | 
+    | Instagram                          | Sin información                | No se encontraron redes sociales disponibles, intente más tarde | 
+
+#US20
+Feature: US20 - Como representante de una institución gubernamental o fiscalizadora, quiero enviar un formulario desde la sección de "Contáctanos" en la plataforma, para comunicarme de manera formal y recibir asistencia o información sobre temas relacionados con las obras públicas o el uso de la plataforma digital. 
+
+ Scenario: ES52 - Completar y enviar el formulario
+  TA01
+  Given que un representante de una institución gubernamental o fiscalizadora está en la sección de "Contáctanos"
+  When completa el formulario con los campos requeridos (nombre, email, mensaje) y hace clic en el botón de enviar
+  Then la plataforma digital debe confirmar que el formulario ha sido enviado correctamente mostrando un mensaje de éxito ("Su mensaje ha sido enviado")
+
+ Examples :
+    | Formulario | Mensaje de éxito |
+    | Nombre     | "Su formulario fue enviado correctamente" |
+    | Email      | "Su formulario fue enviado correctamente" |
+    | Mensaje    | "Su formulario fue enviado correctamente" |
+
+ Scenario: ES53 - Validación de campos obligatorios
+  TA02
+  Given que un representante de una institución gubernamental o fiscalizadora está llenando el formulario
+  When intenta enviarlo sin completar todos los campos obligatorios (por ejemplo, sin email o mensaje)
+  Then la plataforma digital debe mostrar un mensaje de advertencia resaltando los campos faltantes y solicitando que se completen antes de poder enviar el formulario
+
+ Examples :
+    | Formulario | Mensaje de advertencia |
+    | Nombre     | "No se puede enviar el nombre si no ingresa el Nombre"  |
+    | Email      | "No se puede enviar el nombre si no ingresa el Email"   |
+    | Mensaje    | "No se puede enviar el nombre si no ingresa el Mensaje" |
+
+ Scenario: ES54 - Copia del formulario de "Contáctanos" por email
+  TA03
+  Given que un representante de una institución gubernamental o fiscalizadora ha enviado correctamente el formulario
+  When la plataforma digital recibe la solicitud
+  Then la plataforma digital debe enviar automáticamente un [correo electrónico de confirmación a la dirección proporcionada], indicando que el [mensaje ha sido recibido] y que la respuesta será enviada en un plazo determinado
+
+ Examples :
+    | Formulario enviado | Correo electrónico de confirmación |
+    | Formulario1        | CorreoElectrónico1                 |
