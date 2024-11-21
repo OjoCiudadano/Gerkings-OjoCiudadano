@@ -808,3 +808,125 @@ Feature: US25 - Como representante de una institución gubernamental o fiscaliza
 
  Examples :
     | Botón “Descargar desde la Apple Store” | Pantalla de descarga de la app en Apple Store |
+
+#US26
+Feature: US26 - Como representante de una institución gubernamental o fiscalizadora, quiero consultar los indicadores de impacto social y económico de las obras, para evaluar su efectividad.
+
+ Scenario: ES62 - Visualización de indicadores de impacto
+  TA01
+  Given que el representante de una institución gubernamental o fiscalizadora necesita ver el impacto social
+  When selecciona una [obra finalizada]
+  Then la plataforma digital debe mostrar [indicadores de desarrollo social], como empleo, salud, entre otros
+
+ Examples :
+    | Indicadores de desarrollo social | 
+    | Empleo                           |
+    | Salud                            |
+    | Otros                            |
+
+ Scenario: ES63 - Comparar impacto planificado con el real
+  TA02
+  Given que el representante de una institución gubernamental o fiscalizadora desea realizar una comparación
+  When accede a la obra
+  Then a plataforma digital debe permitir comparar los [valores estimados del impacto social y económico con los valores reales]
+
+ Examples :
+    | Visualización de los indicadores            |
+    | Comparación impacto planificado con el real |
+
+#US27
+Feature: US27 - Como representante de una institución gubernamental o fiscalizadora, quiero recibir informes automáticos sobre el cumplimiento de los objetivos sociales, para asegurar que las obras están generando el impacto esperado.   
+
+ Scenario: ES64 - Generación automática de informes
+  TA01
+  Given que la obra está en ejecución
+  When se alcanzan ciertos [hitos sociales]
+  Then la plataforma digital debe generar un [informe automático que incluya indicadores clave del impacto social de la obra]
+
+ Examples :
+    | Informe automático            |
+    | Indicadores de impacto social |
+
+ Scenario: ES65 - Distribución de informes
+  TA02
+  Given que el [informe] ha sido generado
+  When esté listo
+  Then la plataforma digital debe [enviarlo automáticamente a los representantes de instituciones gubernamentales o fiscalizadoras interesados]
+
+ Examples :
+    | Informe automático                                                 |
+    | Envío automático a representantes de instituciones gubernamentales |
+    | Envío automático a representantes de fiscalizadoras interesados    |
+
+#US28
+Feature: US28 - Como representante de una institución gubernamental o fiscalizadora, quiero acceder a encuestas de satisfacción ciudadana sobre las obras, para medir la percepción del público en tiempo real.
+
+ Scenario: ES66 - Acceso a encuestas
+  TA01
+  Given que la obra está en ejecución
+  When el representante de una institución gubernamental o fiscalizadora [accede a la plataforma]
+  Then debe poder consultar los [resultados de las encuestas de satisfacción ciudadana relacionadas con la obra]
+
+ Examples :
+    | Resultados de las encuestas |
+    | Resultado1                  |
+    | Resultado2                  |
+    | Resultado3                  |
+
+ Scenario: ES67 - Actualización periódica de encuestas
+  TA02
+  Given que se realizan nuevas encuestas de satisfacción ciudadana
+  When se obtienen [nuevos resultados]
+  Then la plataforma digital debe [actualizar los datos de las encuestas en tiempo real para reflejar la percepción pública actual]
+
+ Examples :
+    | Nuevos resultados de las encuestas |
+    | ResultadoActualizado1              |
+    | ResultadoActualizado2              |
+    | ResultadoActualizado3              |
+
+#US29
+Feature: US29 - Como representante de una institución gubernamental o fiscalizadora, quiero comparar el impacto social estimado con el impacto real, para analizar si los objetivos iniciales se han cumplido.    
+
+ Scenario: ES68 - Comparación de impacto
+  TA01
+  Given que la obra ha sido completada
+  When el representante de una institución gubernamental o fiscalizadora [accede al análisis de impacto]
+  Then la plataforma digital debe mostrar una [comparación entre el impacto social estimado y el impacto real alcanzado]
+
+ Examples :
+    | Comparación de impacto                                              |
+    | Comparación visual del impacto social estimado vs.el real alcanzado |
+
+ Scenario: ES69 - Generación de informe de comparación
+  TA02
+  Given que el representante de una institución gubernamental o fiscalizadora ha [solicitado un informe]
+  When se genera el informe
+  Then la plataforma digital debe permitir descargar un [informe que detalle la comparación de impacto social estimado y real]
+
+ Examples :
+    | Informe de comparación                                                |
+    | Comparación detallada del impacto social estimado y el real alcanzado |
+
+#US30
+Feature: US30 - Como representante de una institución gubernamental o fiscalizadora, quiero generar informes detallados que muestren el impacto de las obras en la reducción de brechas de infraestructura y servicios básicos, para evaluar su contribución al desarrollo
+
+ Scenario: ES70 - Selección de obras para análisis
+  TA01
+  Given que el representante de una institución gubernamental o fiscalizadora está generando un reporte
+  When [selecciona las obras a analizar]
+  Then el sistema debe mostrar los [indicadores de reducción de brechas de infraestructura y servicios básicos]
+
+ Examples :
+    | Obras a analizar                                                                               |
+    | Visualización de indicadores sobre reducción de brechas de infraestructura y servicios básicos |
+   
+ Scenario: ES71 - Generación de informe completo
+  TA02
+  Given que el representante de una institución gubernamental o fiscalizadora ha [generado el informe]
+  When la plataforma digital finaliza el proceso
+  Then debe permitir descargar un [informe completo que muestre el impacto en la reducción de brechas de infraestructura y servicios básicos]
+
+Examples :
+    | Informe descargable                                                                                 |
+    | Datos detallados sobre el impacto en la reducción de brechas de infraestructura y servicios básicos |
