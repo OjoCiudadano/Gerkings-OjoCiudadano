@@ -395,3 +395,160 @@ Feature : US10 - Como ciudadano peruano, quiero poder descargar la documentació
  Examples :
     | Ver documento | Vista previa del documento en línea |
     | Documento1    | VistaPrevia1                        | 
+
+#US11
+Feature: US11 - Como ciudadano peruano, quiero poder reportar datos desactualizados sobre una obra pública para asegurar que la información reflejada en la plataforma digital esté actualizada y confiable. 
+
+ Scenario: ES31 - Reportar datos desactualizados
+  TA01
+  Given que el ciudadano peruano detecta [información incorrecta o desactualizada sobre una obra pública]
+  When selecciona la opción ["Reportar datos incorrectos"] en la plataforma
+  Then la plataforma digital debe permitirle [especificar qué dato es incorrecto y enviar un reporte con una justificación breve]
+
+ Examples :
+    | Reportar datos incorrectos |
+    | Reporte enviado            |
+
+ Scenario: ES32 - Confirmación del reporte enviado
+  TA02
+  Given el ciudadano peruano ha enviado [un reporte de datos desactualizados]
+  When el reporte es enviado con éxito
+  Then la plataforma digital debe mostrar [una notificación de confirmación indicando que el reporte ha sido recibido y está en revisión]
+
+ Examples :
+    | Reportar datos incorrectos | Notificación de confirmación |
+    | Reporte enviado            | "Su reporte fue recibido"    |
+
+ Scenario: ES33 - Seguimiento del reporte
+  TA03
+  Given que el ciudadano peruano ha enviado [un reporte de datos desactualizados]
+  When accede al [historial de sus reportes]
+  Then la plataforma digital debe mostrar [el estado de su reporte (por ejemplo: "En revisión", "Aceptado", "Rechazado")]
+
+ Examples :
+    | Gobiernos Regionales | Reportar datos incorrectos | Notificación de confirmación | Estado de reporte |
+    | Lima                 | Reporte enviado            | "Su reporte fue recibido"    | "En revisión"     | 
+    | Tacna                | Reporte enviado            | "Su reporte fue recibido"    | "Aceptado"        |
+    | San Martín           | Reporte enviado            | "Su reporte fue recibido"    | "Rechazado"       |
+  
+#US12
+Feature: US12 - Como ciudadano peruano, quiero poder adjuntar fotos y/o videos como evidencia al enviar un reporte sobre una obra pública, para respaldar la información y facilitar la verificación del problema reportado.
+
+ Scenario: ES34 - Adjuntar evidencia durante el reporte
+  TA01
+  Given que el ciudadano peruano está llenando [un formulario para reportar una irregularidad o dato incorrecto]
+  When selecciona la opción ["Adjuntar evidencia multimedia (fotos y/o videos)"]
+  Then la plataforma digital debe permitirle [cargar archivos desde su dispositivo con un límite de tamaño y cantidad, mostrando una vista previa de los archivos seleccionados]
+
+ Examples :
+    | Gobiernos Regionales | Adjuntar Evidencia | Vista previa |
+    | Lima                 | Foto               | VistaPrevia1 |
+    | Tacna                | Video              | VistaPrevia2 |
+    | San Martín           |
+
+ Scenario: ES35 - Confirmación de evidencia adjuntada
+  TA02
+  Given que el ciudadano peruano ha adjuntado [evidencia multimedia al reporte]
+  When envía [el reporte con la evidencia cargada]
+  Then la plataforma digital debe confirmar [que los archivos se han adjuntado correctamente y el reporte ha sido enviado con éxito, mostrando un mensaje de confirmación]
+
+ Examples :
+    | Gobiernos Regionales | Adjuntar Evidencia | Vista previa | Mensaje de confirmación   |
+    | Lima                 | Foto               | VistaPrevia1 | "Su reporte fue recibido" |
+    | Tacna                | Video              | VistaPrevia2 | "Su reporte fue recibido" |
+    | San Martín           |
+
+ Scenario: ES36 - Visualización de evidencia adjunta en el historial de reportes
+  TA03
+  Given que el ciudadano ha enviado [un reporte con evidencia multimedia]
+  When accede a [su historial de reportes]
+  Then la plataforma digital debe permitirle [visualizar la evidencia adjunta (fotos y/o videos) que respaldó su reporte, junto con el estado del reporte]
+
+ Examples :
+    | Gobiernos Regionales | Adjuntar Evidencia | Vista previa | Mensaje de confirmación   | Historial de reportes |
+    | Lima                 | Foto               | VistaPrevia1 | "Su reporte fue recibido" | Foto1                 |
+    | Tacna                | Video              | VistaPrevia2 | "Su reporte fue recibido" | Video1                |
+    | San Martín           |
+
+#US13
+Feature: US13 - Como ciudadano peruano, quiero poder ver un listado de todos los reportes que he enviado sobre las obras públicas, para hacer seguimiento a su estado y verificar las respuestas o acciones tomadas.
+
+ Scenario: ES37 - Visualización básica del listado de reportes enviados
+  TA01
+  Given que el ciudadano peruano accede [a su cuenta en la plataforma]
+  When selecciona la opción ["Ver listado de reportes enviados"]
+  Then la plataforma digital debe mostrar [un listado con el título del reporte, la fecha de envío, el estado actual (en revisión, resuelto, etc.), y un enlace para ver más detalles del reporte]
+
+ Examples :
+    | Gobiernos Regionales | Listado de reportes enviados |
+    | Lima                 | Título                       |
+    | Tacna                | Fecha de envío               |
+    | San Martín           | Estado actual                |
+                           | Enlace para ver más detalles | 
+
+ Scenario: ES38 - Acceso a los detalles de un reporte específico
+  TA02
+  Given que el ciudadano peruano desea ver [información detallada de un reporte específico]
+  When selecciona [un reporte en el listado]
+  Then la plataforma digital debe mostrar [los detalles del reporte, incluyendo la evidencia adjunta (si la hay)]
+
+ Examples :
+    | Gobiernos Regionales | Detalles del reporte | 
+    | Lima                 | Detalle1             |
+    | Tacna                | Detalle2             |
+    | San Martín           | Detalle3             |
+
+#US14
+Feature: US14 - Como ciudadano peruano, quiero poder descargar una copia oficial de los reportes enviados sobre un dato desactualizado en obras públicas, para tener un registro personal y poder presentarlo ante otras instituciones si es necesario.
+                 
+ Scenario: ES39 - Descarga exitosa de la copia oficial del reporte
+  TA01
+  Given que el ciudadano peruano ha enviado [un reporte y desea obtener una copia oficial]
+  When selecciona la opción ["Descargar"] en la sección de detalles del reporte
+  Then la plataforma digital debe generar y permitir [la descarga de un archivo PDF con el contenido completo del reporte, incluyendo la fecha de envío y el estado actual]
+
+ Examples :
+    | Descarga archivo PDF |                  
+    | Fecha de envío       |
+    | Estado actual        |
+
+ Scenario: ES40 - Verificación de formato y contenido del PDF
+  TA02
+  Given que el ciudadano peruano ha descargado [la copia oficial]
+  When abre [el archivo PDF]
+  Then debe contener [el título del reporte, la fecha de envío, una descripción detallada de la denuncia, la evidencia adjunta (si corresponde), el estado actual, y una firma o sello digital que certifique la autenticidad del documento]
+
+ Examples :
+    | Lo que debe contener el archivo PDF  |
+    | Título                               |
+    | Fecha de envío                       |
+    | Descripción detallada de la denuncia |
+    | Evidencia adjunta                    |
+    | Estado actual                        |
+    | Firma                                |
+
+#US15
+Feature: US15 - Como ciudadano peruano, quiero poder compartir los reportes sobre datos desactualizados de las obras públicas con otros ciudadanos, para que más personas puedan estar al tanto. 
+
+ Scenario: ES41 - Compartir reporte exitosamente en redes sociales
+  TA01
+  Given que el ciudadano peruano ha enviado [un reporte y quiere compartirlo]
+  When selecciona la opción ["Compartir"] en el reporte
+  Then la plataforma digital debe mostrar [opciones para compartir el enlace del reporte en redes sociales como Facebook, Twitter y Instagram]
+
+ Examples :
+    | Compartir |
+    | Facebook  |
+    | Twitter   |
+    | Instagram |
+
+ Scenario: ES42 - Compartir el reporte mediante un enlace directo
+  TA02
+  Given que el ciudadano peruano desea compartir [el reporte a través de un enlace]
+  When selecciona la opción ["Compartir por enlace"]
+  Then la plataforma digital debe generar [un enlace único que puede ser copiado y enviado por cualquier plataforma digital de mensajería o correo electrónico, permitiendo que otros ciudadanos accedan al reporte]
+
+ Examples :
+    | Compartir por enlace             |
+    | Plataforma digital de mensajería |
+    | Correo electrónico               |    
